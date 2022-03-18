@@ -1,7 +1,7 @@
-# bertoti
-CICLO DE VIDA
+# Igor Suzuki Kira - RA: 1460282123032
+Ciclo de Vida do Desenvolvimento de Software
 
-REQUISITOS
+# REQUISITOS
 
 FUNCIONAIS
 
