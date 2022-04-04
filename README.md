@@ -10,3 +10,8 @@
 
 # User Stories
 ![foto](https://github.com/igorsuzuki99/bertoti/blob/c072a91a09a021b94da9f7bbb512d10eb52259e4/Engenharia%20de%20Software/cards.jpg)
+
+# Projeto de Sistema
+
+### Diagrama de Classes
+![foto](https://github.com/igorsuzuki99/bertoti/blob/61b77469bbf24872194b5f8b2bcbcdd9d19e2398/Engenharia%20de%20Software/diagrama.jpg)
