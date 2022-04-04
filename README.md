@@ -9,7 +9,7 @@
 ![foto](https://github.com/igorsuzuki99/bertoti/blob/97565df825bfe5d7d4ab960e9510e4e0fa81b81c/Engenharia%20de%20Software/nao_funcionais.drawio.png)
 
 # User Stories
-![foto](https://github.com/igorsuzuki99/bertoti/blob/c072a91a09a021b94da9f7bbb512d10eb52259e4/Engenharia%20de%20Software/cards.jpg)</h1>
+![foto](https://github.com/igorsuzuki99/bertoti/blob/c072a91a09a021b94da9f7bbb512d10eb52259e4/Engenharia%20de%20Software/cards.jpg)
 
 # Projeto de Sistema
 
