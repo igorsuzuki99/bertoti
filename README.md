@@ -14,4 +14,4 @@
 # Projeto de Sistema
 
 ### Diagrama de Classes
-![foto](https://github.com/igorsuzuki99/bertoti/blob/d5cbb8a6408b9975e1f539a6bc13aa60c6c0002b/Engenharia%20de%20Software/diagrama.png)
+![foto](https://github.com/igorsuzuki99/bertoti/blob/6c7492665f8d697dd0e763b11d039b12e77f99b1/Engenharia%20de%20Software/diagrama.jpg)
