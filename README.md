@@ -15,3 +15,5 @@
 
 ### Diagrama de Classes
 ![foto](https://github.com/igorsuzuki99/bertoti/blob/6c7492665f8d697dd0e763b11d039b12e77f99b1/Engenharia%20de%20Software/diagrama.jpg)
+##
+![foto](https://github.com/igorsuzuki99/bertoti/blob/35a982453df28633ed833334c9892bd461314661/Engenharia%20de%20Software/cod_plataforma.jpg)
