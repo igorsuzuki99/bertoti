@@ -19,3 +19,5 @@
 ![foto](https://github.com/igorsuzuki99/bertoti/blob/35a982453df28633ed833334c9892bd461314661/Engenharia%20de%20Software/cod_plataforma.jpg)
 ##
 ![foto](https://github.com/igorsuzuki99/bertoti/blob/68ecb7e5aa35f082b249e6ac08154c52f334571b/Engenharia%20de%20Software/Classe_Aluno.png)
+##
+![foto](https://github.com/igorsuzuki99/bertoti/blob/49ea01358c45536c9e6e521a84de033589377a2f/Engenharia%20de%20Software/Classe_Prof.jpg)
