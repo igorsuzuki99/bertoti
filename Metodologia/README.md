@@ -4,3 +4,6 @@
 #### IACIT
 ![](https://github.com/igorsuzuki99/bertoti/blob/e476dee40e6b64e6f22ca2866eb7b950dc834383/Metodologia/download.png)
 ### Descrição do Projeto
+Desenvolvimento de um sistema no qual seja possível importar, pesquisar e gerar relatórios de dados meteorológicos. Além disso, alocação dos dados disponibilizados no site do Instituto Nacional de Meteorologia (INMET) para um banco de dados, para integrar com o sistema desenvolvido. Aplicação com interface web, que dispõe de um mecanismo de filtro no qual é possível filtrar os registros por datas, regiões, estados, localidades e tipo de dado, para posteriormente expor as informações em formato de gráficos e com a possibilidade de exportar um relatório com base na consulta realizada.
+
+### Tecnologias Utilizadas
