@@ -14,3 +14,8 @@ O Spring é um framework que dispõe de recursos para criação de aplicações 
 <br><br><br>
 ![](https://github.com/igorsuzuki99/bertoti/blob/15e9c5d7351a579e2e31344f6e97498082a493ca/Metodologia/postgre.jpg)
 #### PostgreSQL
+O banco de dados utilizado foi o PostgreSQL, um banco relacional no qual alocamos todos os dados meteorológicos, dados de estações e regiões. A escolha do Postgres se deu por conta de sua versatilidade, interface simplificada, e funcionalidades expostas de forma dedutiva, que facilitaram a usabilidade e gerenciamento do banco de dados. A sua alta eficiência e desempenho contribuiram para armazenar com tranquilidade os milhões de dados meteorológicos importados.
+
+### Contribuições Individuais (pontos de maior valor)
+
+### Aprendizados Efetivos (pontos de maior valor)
