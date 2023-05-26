@@ -29,6 +29,10 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
   <summary><b>Desenvolvimento do dashboard</b></summary>
   <p>Contribuí no desenvolvimento da interface do front-end, onde implementei a utilização da biblioteca chart.js para construir os gráficos baseados nos dados meteorológicos requisitados. Realizei métodos em JavaScript, que consultavam os JSON's dos endpoints do back-end, e gerava os gráficos a partir dos dados captados. Também implementei inputs na página web para receber os critérios de filtragem e passar os parâmetros para o back-end realizar as consultas.</p>
 </details>
+<details>
+  <summary><b>Geração de relatório</b></summary>
+  <p></p>
+</details>
 
 
 ### Aprendizados Efetivos (pontos de maior valor)
