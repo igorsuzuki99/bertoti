@@ -24,6 +24,31 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
 <details>
   <summary><b>Criação e personalização dos endpoints back-end</b></summary>
   <p>Nesse projeto realizei o desenvolvimento dos métodos em back-end que realizavam as consultas dos dados meteorológicos no banco de dados. Criei os endpoints principais de consultas gerais, e também os endpoints personalizados baseados nos filtros. De acordo com os filtros selecionados, eu validava os parâmetros recebidos e adaptava os endpoints com consultas personalizadas no banco de dados para retornar os resultados pretendidos.</p>
+  
+  ```java
+  
+  @GetMapping(value = "/precipitacao/range/{estacao}/{data1}/{data2}")
+    public List<Precipitacao> listarRangePrecipitacao(@PathVariable("estacao") String codigo, @PathVariable("data1") String precData, @PathVariable("data2") String precData1){
+        Query query = entityManager.createNativeQuery("select * from precipitacao where prec_data between '"+precData+"' and '"+precData1+"' and fk_estacao_cod_wmo = '"+codigo+"'");
+        List<Object[]> rows = query.getResultList();
+
+        List<Precipitacao> list = new ArrayList<>();
+
+        for (Object[] obj : rows) {
+            list.add(new Precipitacao(
+                    (Integer) obj[0],
+                    (Date) obj[1],
+                    (Date)obj[2],
+                    (BigDecimal) obj[3],
+                    (String) obj[4]
+            ));
+        }
+        return list;
+    }
+  
+  ```
+  
+  <p><i>No exemplo de código acima, o endpoint de precipitação recebe os parâmetros personalizados de acordo com a estação e datas escolhidas pelo usuário, realiza a pesquisa no banco de dados com as variáveis e coloca o resultado dentro de uma lista de arrays de objetos. Através de um laço, são adicionados à lista cada objeto retornado pela consulta na query.</i></p>
 </details>
 <details>
   <summary><b>Desenvolvimento do dashboard</b></summary>
