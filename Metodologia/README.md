@@ -31,8 +31,36 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
 </details>
 <details>
   <summary><b>Geração de relatório</b></summary>
-  <p></p>
+  <p>Implementei a função de gerar um PDF do gráfico gerado, contendo as informações meteorológicas filtradas de acordo com a pesquisa do usuário. O pdf gerado contém os dados pesquisados e o gráfico equivalente</p>
 </details>
 
 
-### Aprendizados Efetivos (pontos de maior valor)
+### Aprendizados Efetivos
+<details>
+  <summary>Spring Framework</summary>
+    <ul>
+      <li>Desenvolvimento de aplicações web</li>
+      <li>Integração com banco de dados</li>
+      <li>Injeção de dependências</li>
+      <li>Desenvolvimento de código através de interfaces</li>
+    </ul>
+</details>
+<details>
+  <summary>Banco de dados</summary>
+    <ul>
+      <li>Consultas personalizadas com SQL</li>
+      <li>Geração de scripts</li>
+      <li>Geração e import de backup</li>
+    </ul>
+</details>
+<details>
+  <summary>Programação</summary>
+    <ul>
+      <li>Funções em JavaScript</li>
+      <li>Manipulação de variáveis com JavaScript</li>
+      <li>Programação orientada a objetos</li>
+      <li>Consumo de API Rest</li>
+      <li>Gerenciamento de usuários</li>
+      <li>Consumo de recursos de bootstrap</li>
+    </ul>
+</details>
