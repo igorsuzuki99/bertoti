@@ -65,6 +65,7 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
   <summary>Spring Framework</summary>
     <ul>
       <li>Desenvolvimento de aplicações web</li>
+      <li>Arquitetura REST</li>
       <li>Integração com banco de dados</li>
       <li>Injeção de dependências</li>
       <li>Desenvolvimento de código através de interfaces</li>
@@ -75,7 +76,7 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
     <ul>
       <li>Consultas personalizadas com SQL</li>
       <li>Geração de scripts</li>
-      <li>Geração e import de backup</li>
+      <li>Export e import de backup</li>
     </ul>
 </details>
 <details>
