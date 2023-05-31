@@ -48,7 +48,7 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
   
   ```
   
-  <p><i>No exemplo de código acima, o endpoint de precipitação recebe os parâmetros personalizados de acordo com a estação e datas escolhidas pelo usuário, realiza a pesquisa no banco de dados com as variáveis e coloca o resultado dentro de uma lista de arrays de objetos. Através de um laço, são adicionados à lista cada objeto retornado pela consulta na query.</i></p>
+  <p><i>No exemplo de código acima, o endpoint de precipitação recebe os parâmetros personalizados de acordo com a estação e datas escolhidas pelo usuário, realiza a pesquisa no banco de dados com as variáveis e coloca o resultado dentro de uma lista de arrays de objetos. Através de um laço, é adicionado à lista cada objeto do tipo precipitação retornado pela consulta na query.</i></p>
 </details>
 <details>
   <summary><b>Desenvolvimento do dashboard</b></summary>
