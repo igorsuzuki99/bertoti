@@ -31,17 +31,15 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
     public List<Precipitacao> listarRangePrecipitacao(@PathVariable("estacao") String codigo, @PathVariable("data1") String precData, @PathVariable("data2") String precData1){
         Query query = entityManager.createNativeQuery("select * from precipitacao where prec_data between '"+precData+"' and '"+precData1+"' and fk_estacao_cod_wmo = '"+codigo+"'");
         List<Object[]> rows = query.getResultList();
-
         List<Precipitacao> list = new ArrayList<>();
-
         for (Object[] obj : rows) {
             list.add(new Precipitacao(
                     (Integer) obj[0],
                     (Date) obj[1],
                     (Date)obj[2],
                     (BigDecimal) obj[3],
-                    (String) obj[4]
-            ));
+                    (String) obj[4])
+            );
         }
         return list;
     }
