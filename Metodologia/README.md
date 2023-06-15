@@ -60,23 +60,21 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
   if(dado[0]=="temperatura"){
     $(document).ready(function(){
         $.getJSON("/temperatura/range/"+dado[1]+"/"+dado[2]+"/"+dado[3],function(data){
-
-        if(dado[1]!=null){
-            document.getElementById("selectRegiao").innerHTML = "";
-            $("#selectRegiao").append(inventory.find(procurarEstacao).nome_estacao+" - |"+dado[1]+"|");
-            document.getElementById("selectEstado").innerHTML = "";
-            $("#selectEstado").append(inventory.find(procurarEstacao).estado);
-
-            $(document).ready(function(){
-                $.getJSON("/estados",function(regiao){
-                   function procurarEstado(estado) {
-                     return estado.nome_estado === inventory.find(procurarEstacao).estado;
-                   }
-                   document.getElementById("selectRegiao").innerHTML = "";
-                   $("#selectRegiao").append(regiao.find(procurarEstado).regiao);
-                });
-            });
-        }
+          if(dado[1]!=null){
+              document.getElementById("selectRegiao").innerHTML = "";
+              $("#selectRegiao").append(inventory.find(procurarEstacao).nome_estacao+" - |"+dado[1]+"|");
+              document.getElementById("selectEstado").innerHTML = "";
+              $("#selectEstado").append(inventory.find(procurarEstacao).estado);
+              $(document).ready(function(){
+                  $.getJSON("/estados",function(regiao){
+                     function procurarEstado(estado) {
+                       return estado.nome_estado === inventory.find(procurarEstacao).estado;
+                     }
+                     document.getElementById("selectRegiao").innerHTML = "";
+                     $("#selectRegiao").append(regiao.find(procurarEstado).regiao);
+                  });
+              });
+          }
   ...
   ```
   
