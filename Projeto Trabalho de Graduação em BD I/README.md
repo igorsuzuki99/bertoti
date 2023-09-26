@@ -23,12 +23,104 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
 ### Contribuições Individuais
 <details>
   <summary><b>Criação e personalização dos endpoints back-end</b></summary>
+  <br>
   <p>Nesse projeto realizei o desenvolvimento dos métodos em back-end que realizavam as consultas dos dados meteorológicos no banco de dados. Criei os endpoints principais de consultas gerais, e também os endpoints personalizados baseados nos filtros. De acordo com os filtros selecionados, eu validava os parâmetros recebidos e adaptava os endpoints com consultas personalizadas no banco de dados para retornar os resultados pretendidos.</p>
+  
+  ```java
+  
+  @GetMapping(value = "/precipitacao/range/{estacao}/{data1}/{data2}")
+    public List<Precipitacao> listarRangePrecipitacao(@PathVariable("estacao") String codigo, @PathVariable("data1") String precData, @PathVariable("data2") String precData1){
+        Query query = entityManager.createNativeQuery("select * from precipitacao where prec_data between '"+precData+"' and '"+precData1+"' and fk_estacao_cod_wmo = '"+codigo+"'");
+        List<Object[]> rows = query.getResultList();
+        List<Precipitacao> list = new ArrayList<>();
+        for (Object[] obj : rows) {
+            list.add(new Precipitacao(
+                    (Integer) obj[0],
+                    (Date) obj[1],
+                    (Date)obj[2],
+                    (BigDecimal) obj[3],
+                    (String) obj[4])
+            );
+        }
+        return list;
+    }
+  
+  ```
+  
+  <p><i>No exemplo de código acima, o endpoint de precipitação recebe os parâmetros personalizados de acordo com a estação e datas escolhidas pelo usuário, realiza a pesquisa no banco de dados com as variáveis e coloca o resultado dentro de uma lista de arrays de objetos. Através de um laço, cada objeto do tipo precipitação retornado pela consulta na query é adicionado na lista.</i></p>
+  <br>
 </details>
 <details>
   <summary><b>Desenvolvimento do dashboard</b></summary>
+  <br>
   <p>Contribuí no desenvolvimento da interface do front-end, onde implementei a utilização da biblioteca chart.js para construir os gráficos baseados nos dados meteorológicos requisitados. Realizei métodos em JavaScript, que consultavam os JSON's dos endpoints do back-end, e gerava os gráficos a partir dos dados captados. Também implementei inputs na página web para receber os critérios de filtragem e passar os parâmetros para o back-end realizar as consultas.</p>
+  
+  ```javascript
+  
+  if(dado[0]=="temperatura"){
+    $(document).ready(function(){
+        $.getJSON("/temperatura/range/"+dado[1]+"/"+dado[2]+"/"+dado[3],function(data){
+          if(dado[1]!=null){
+              document.getElementById("selectRegiao").innerHTML = "";
+              $("#selectRegiao").append(inventory.find(procurarEstacao).nome_estacao+" - |"+dado[1]+"|");
+              document.getElementById("selectEstado").innerHTML = "";
+              $("#selectEstado").append(inventory.find(procurarEstacao).estado);
+              $(document).ready(function(){
+                  $.getJSON("/estados",function(regiao){
+                     function procurarEstado(estado) {
+                       return estado.nome_estado === inventory.find(procurarEstacao).estado;
+                     }
+                     document.getElementById("selectRegiao").innerHTML = "";
+                     $("#selectRegiao").append(regiao.find(procurarEstado).regiao);
+                  });
+              });
+          }
+  ...
+  ```
+  
+  <p><i>No trecho de código acima se o usuário busca pelo dado de temperatura, é realizado uma busca do JSON do endpoint formado pela URL personalizada de acordo com os parâmetros passados de região, estado e estação.</i></p>
+  <br>
+</details>
+<details>
+  <summary><b>Geração de relatório</b></summary>
+  <br>
+  <p>Implementei a função de gerar um PDF do gráfico gerado, contendo as informações meteorológicas filtradas de acordo com a pesquisa do usuário. O pdf gerado contém os dados pesquisados e o gráfico equivalente</p>
 </details>
 
 
-### Aprendizados Efetivos (pontos de maior valor)
+### Aprendizados Efetivos
+<details>
+  <summary>Spring Framework</summary>
+  <br>
+    <ul>
+      <li>Desenvolvimento de aplicações web</li>
+      <li>Arquitetura REST</li>
+      <li>Integração com banco de dados</li>
+      <li>Injeção de dependências</li>
+      <li>Desenvolvimento de código através de interfaces</li>
+    </ul>
+  <br>
+</details>
+<details>
+  <summary>Banco de dados</summary>
+  <br>
+    <ul>
+      <li>Consultas personalizadas com SQL</li>
+      <li>Geração de scripts</li>
+      <li>Export e import de backup</li>
+    </ul>
+  <br>
+</details>
+<details>
+  <summary>Programação</summary>
+  <br>
+    <ul>
+      <li>Funções em JavaScript</li>
+      <li>Manipulação de variáveis com JavaScript</li>
+      <li>Programação orientada a objetos</li>
+      <li>Consumo de API Rest</li>
+      <li>Gerenciamento de usuários</li>
+      <li>Consumo de recursos de bootstrap</li>
+    </ul>
+  <br>
+</details>
