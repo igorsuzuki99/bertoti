@@ -1,4 +1,106 @@
 # Igor Suzuki Kira
+
+## Projeto 1: 2º Semestre de 2021
+#### Carcará Analysis
+### Descrição do Projeto
+Desenvolver um projeto com o objetivo de analisar os dados oficiais da COVID-19 no Estado de São Paulo e entregá-los ao usuário de forma clara e contextualizada, através de visualizações gráficas ou não-gráficas.
+<br><br>
+### Tecnologias Utilizadas
+
+<img src="https://github.com/igorsuzuki99/bertoti/blob/c282e732369eac9c6747be43ef7537406b0eecbe/Metodologia/python.png" alt="python" width="100" height="100">
+
+#### Python
+A aplicação foi desenvolvida predominantemente em Python devido à sua sintaxe clara e simplificada, além de uma vasta quantidade de bibliotecas e frameworks que suportam diversas áreas de desenvolvimento, incluindo análise de dados, que facilitou o processo de criação do primeiro projeto.
+<br><br><br>
+
+<img src="https://github.com/igorsuzuki99/bertoti/blob/bb03798c11a5ba06031f163a6aefdea19bfc9a25/Metodologia/pandas.png" alt="pandas" width="200" height="80">
+
+#### Pandas
+Para ajudar com a manipulação dos dados foi utilizado o Pandas, que é uma biblioteca que oferece estruturas de dados de alto desempenho, além de ferramentas de análise de dados. Ela foi usada para a leitura dos dados que eram obtidos através de CSVs. O Pandas também possui integração com a biblioteca NumPy, o que proporcionou um desempenho eficiente para as operações numéricas.
+<br><br><br>
+
+<img src="https://github.com/igorsuzuki99/bertoti/blob/311ec11072ab295d94f6687b7a1923c1402b5a53/Metodologia/plotly.png" alt="plotly" width="200" height="70">
+
+#### Plotly
+Para facilitar a visualização dos dados estatísticos, foi utilizado Plotly, uma biblioteca gráfica interativa para Python. Ela é usada para criar visualizações de dados interativas e dinâmicas, além de oferecer suporte a uma variedade de tipos de gráficos, desde gráficos simples até visualizações mais complexas e personalizadas. No caso desse projeto, ela foi utilizada para criar gráficos de barra e setores, para demonstrar os dados da COVID.
+<br><br><br>
+### Contribuições Individuais
+<details>
+  <summary><b>Cálculos estatísticos para plotagem de gráficos</b></summary>
+  <br>
+  <p>Nesse projeto, realizei o desenvolvimento dos cálculos para plotagem de gráficos com as estatísticas personalizadas de diferentes dados. Através dos cálculos, foi possível extrair informações complementares além das que os dados forneciam originalmente</p>
+  
+  ```python
+  
+    # GRÁFICO TOTAL DE CASOS (Taxa de Incidência)
+    pop = 44000000 #população do estado de SP
+    casos = covidsp[covidsp['Data'] == data]['Casos por dia'].values[0]
+    
+    inc = casos / (pop-casos) * 100000
+    print('Incidência de casos: %.f' %inc, 'a cada 100 mil habitantes')
+    
+    # GRÁFICO TOTAL DE ÓBITOS (Taxa de Letalidade)
+    obtotal = covidsp[covidsp['Data'] == data]['Total de óbitos'].values[0]
+    casostotal = covidsp[covidsp['Data'] == data]['Total de casos'].values[0]
+    
+    let = (obtotal/casostotal) * 100
+    print('Taxa de letalidade no Estado: %.1f' %let, '%')
+  
+  ```
+  
+  <p><i>No exemplo de código acima, eu utilizei os dados de casos por dia e a população do estado de SP para calcular a incidência de casos a cada 100 mil habitantes. No segundo cálculo, através do número de óbitos total e de casos total, realizei o cálculo para mostrar a porcentagem de letalidade da doença.</i></p>
+  <br>
+</details>
+<details>
+  <summary><b>Cálculos estatísticos para comparação de informações</b></summary>
+  <br>
+  <p>Realizei também o desenvolvimento dos cálculos para amostragem de informações de comparação. Através dos cálculos, foi possível comparar os dados de diferentes períodos e ter noção da evolução da COVID.</p>
+  
+  ```python
+  
+    # OCUPAÇÃO DOS LEITOS DE UTI E ENFERMARIA NO ESTADO (%) (Variação nos últimos 7 dias)
+    ocup = leitos[leitos['Data'] == data]['Ocupação dos leitos de UTI e Enfermaria (%)'].values[0]
+    ocup7 = leitos[leitos['Data'] == (data - dt.timedelta(days=7))]['Ocupação dos leitos de UTI e Enfermaria (%)'].values[0]
+    
+    x = (ocup*100) / ocup7-100
+    print('Ocupação de leitos {0}%. Comparação com 7 dias atrás: {1:.2f}'.format(ocup, x), '%')
+
+    # NOVAS INTERNAÇÕES POR DIA NO ESTADO (Variação nos últimos 7 dias)
+    inter = leitos[leitos['Data'] == data]['Novos casos de internações (UTI e Enfermaria)'].values[0]
+    inter7 = leitos[leitos['Data'] == (data - dt.timedelta(days=7))]['Novos casos de internações (UTI e Enfermaria)'].values[0]
+    
+    x = (inter*100) / inter7-100
+    print('Novas internações: {0}. Comparação com 7 dias atrás: {1:.2f}'.format(inter, x), '%')
+  ```
+  
+  <p><i>No trecho de código acima, utilizei os números de ocupação de leitos e de novas internações em determinada data, para realizar o cálculo da diferença em porcentagem com os números dos mesmos dados de 7 dias atrás.</i></p>
+  <br>
+</details> <br>
+
+### Aprendizados Efetivos
+<details>
+  <summary>Linguagem Python</summary>
+  <br>
+    <ul>
+      <li>Lógica, variáveis e tipos de dados</li>
+      <li>Funções</li>
+      <li>Listas e dicionários</li>
+      <li>Manipulação de entrada e saída de arquivos</li>
+    </ul>
+  <br>
+</details>
+<details>
+  <summary>Plotagem de gráficos</summary>
+  <br>
+    <ul>
+      <li>Popular e construir gráficos</li>
+      <li>Plotagem de diferentes estilos de gráficos</li>
+      <li>Manipulação e personalização de dados estatísticos</li>
+    </ul>
+  <br>
+</details><br><br>
+
+
 ## Projeto 1: 2º Semestre de 2022
 ### Parceiro Acadêmico
 #### IACIT
