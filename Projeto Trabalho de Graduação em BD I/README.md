@@ -110,7 +110,7 @@ Desenvolvimento de um sistema no qual seja possível importar, pesquisar e gerar
 
 ### Tecnologias Utilizadas
 ![java_spring](https://github.com/igorsuzuki99/bertoti/blob/3bdf06bd363c4a90096a16e0491ab4f8ca127638/Metodologia/javaspring.jpg)
-#### Java Spring 
+#### Java e Spring 
 O back-end da aplicação foi desenvolvido predominantemente em Java, uma linguagem orientada a objetos, na qual juntamente com a tecnologia de Spring foi possível criar endpoints para interfaces web.
 O Spring é um framework que dispõe de recursos para criação de aplicações web escritas em Java e que traz mais agilidade para o desenvolvimento, visto que facilita as configurações iniciais do projeto com a injeção de dependências, as quais servem tanto para preparar o ambiente, quanto para otimizar a utilização de ferramentas e bibliotecas durante o desenvolvimento do projeto.
 <br><br><br>
@@ -187,7 +187,7 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
   <summary><b>Geração de relatório</b></summary>
   <br>
   <p>Implementei a função de gerar um PDF do gráfico gerado, contendo as informações meteorológicas filtradas de acordo com a pesquisa do usuário. O pdf gerado contém os dados pesquisados e o gráfico equivalente</p>
-</details>
+</details><br>
 
 
 ### Aprendizados Efetivos
