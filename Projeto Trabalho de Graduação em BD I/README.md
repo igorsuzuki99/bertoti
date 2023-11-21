@@ -367,26 +367,25 @@ Chart.js é uma biblioteca do JavaScript que possibilita a exposição de dados 
 ### Parceiro Acadêmico
 #### Embraer
 
-<img src="https://github.com/igorsuzuki99/bertoti/blob/e945b5938ce30752e0848b95343dda228c0cff3f/Metodologia/domrock.png" alt="domrock" width="230" height="70">
+<img src="https://github.com/igorsuzuki99/bertoti/blob/792ed4d524602bbda8b81e40500d30b0a93fa57a/Metodologia/embraer.png" alt="embraer" width="300" height="70">
 <br>
 
 ### Descrição do Projeto
-Desenvolvimento de uma plataforma para criação e ativação de clientes para posterior uso da empresa. O projeto conta com telas de cadastro que inserem informações no banco de dados para posterior exibição na tela de consulta dos clientes.
+Desenvolvimento de uma plataforma em que o usuário consulte itens instalados nas aeronaves. O sistema inclui a verificação e edição de itens instalados ou aplicáveis a determinados "chassis" conforme base de dados fornecida.
 <br><br><br>
 
 ### Tecnologias Utilizadas
 
-<img src="https://github.com/igorsuzuki99/bertoti/blob/8ca25ab9891af0ebeea315388c33a7f40670bef4/Metodologia/swing.png" alt="swing" width="120" height="70">
+<img src="https://github.com/igorsuzuki99/bertoti/blob/3bdf06bd363c4a90096a16e0491ab4f8ca127638/Metodologia/javaspring.jpg" alt="spring" width="120" height="90">
 
-#### Java e Swing 
-A aplicação foi desenvolvida em Java, linguagem orientada a objetos, a qual juntamente com o framework Swing foi possível criar elementos visuais para utilização em um aplicativo desktop.
-O Swing fornece componentes gráficos, como botões, caixas de texto, tabelas, entre outros, que podem ser usados para construir interfaces de usuário interativas. Essa característica foi útil nesse projeto pois facilitou o desenvolvimento da parte visual da aplicação.
+#### Java e Spring 
+O back-end da aplicação foi desenvolvido em Java juntamente com o framework Spring, onde foi realizada a lógica das regras de negócio para determinação de quais itens eram considerados instalados, instaláveis ou não instaláveis de acordo com os chassis que fossem pesquisados. Através do Spring Data foi possível realizar consultas de forma mais eficiente no banco de dados para tratamento das lógicas e condições no back-end.
 <br><br><br>
 
-<img src="https://github.com/igorsuzuki99/bertoti/blob/15e9c5d7351a579e2e31344f6e97498082a493ca/Metodologia/postgre.jpg" alt="postgres" width="100" height="100">
+<img src="https://github.com/igorsuzuki99/bertoti/blob/e018c7c6990ba7bf256cd85a755669c315326d8c/Metodologia/autonomousdatabase.png" alt="databaseoracle" width="120" height="80">
 
-#### PostgreSQL
-Para armazenamento das informações, foi utilizado o PostgreSQL, um banco relacional no qual guardamos os dados de usuários e clientes. Foi escolhido o Postgres por conta de sua interface dedutiva, e funcionalidades expostas de forma facilitada, que contribuíram na conexão, manuseio e gerenciamento do banco de dados.
+#### Oracle Autonomous Database
+Para armazenamento dos dados, foi utilizado o Oracle Autonomous Database, um banco relacional em nuvem. Foi escolhido devido a possibilidade de consultar o banco através da internet, proporcionando uma melhor acessibilidade, praticidade e flexibilidade. Além do mais, também proporcionou maior segurança, tanto no controle de acesso ao banco, quanto na consistência dos dados, pois eram gerados backups automáticos que protegiam contra a perda de dados e facilitavam a recuperação em caso de falhas de operação.
 <br><br><br>
 
 ### Contribuições Individuais
