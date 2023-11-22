@@ -130,82 +130,78 @@ Para armazenamento das informações, foi utilizado o PostgreSQL, um banco relac
 
 ### Contribuições Individuais
 <details>
-  <summary><b>Criação e personalização dos endpoints back-end</b></summary>
+  <summary><b>Visualização de clientes cadastrados</b></summary>
   <br>
-  <p>Nesse projeto realizei o desenvolvimento dos métodos em back-end que realizavam as consultas dos dados meteorológicos no banco de dados. Criei os endpoints principais de consultas gerais, e também os endpoints personalizados baseados nos filtros. De acordo com os filtros selecionados, eu validava os parâmetros recebidos e adaptava os endpoints com consultas personalizadas no banco de dados para retornar os resultados pretendidos.</p>
+  <p>Neste projeto realizei o desenvolvimento dos métodos de crud dos clientes. Dentre eles, realizei o método de listagem dos clientes para visualizar quais empresas estão cadastradas no banco de dados da plataforma. </p>
   
   ```java
   
-  @GetMapping(value = "/precipitacao/range/{estacao}/{data1}/{data2}")
-    public List<Precipitacao> listarRangePrecipitacao(@PathVariable("estacao") String codigo, @PathVariable("data1") String precData, @PathVariable("data2") String precData1){
-        Query query = entityManager.createNativeQuery("select * from precipitacao where prec_data between '"+precData+"' and '"+precData1+"' and fk_estacao_cod_wmo = '"+codigo+"'");
-        List<Object[]> rows = query.getResultList();
-        List<Precipitacao> list = new ArrayList<>();
-        for (Object[] obj : rows) {
-            list.add(new Precipitacao(
-                    (Integer) obj[0],
-                    (Date) obj[1],
-                    (Date)obj[2],
-                    (BigDecimal) obj[3],
-                    (String) obj[4])
-            );
+  public void mostrarCliente(String cnpj) {
+        try {
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql ="select * from cliente where cnpj_cliente='" + cnpj+ "';";
+            rs = st.executeQuery(sql);
+            variables empresa = new variables();       
+            if (rs.next()) {
+                empresa.setCnpj(rs.getString("cnpj_cliente"));
+                empresa.setNome_empresa(rs.getString("nome_empresa"));
+                empresa.setObjetivo_neg(rs.getString("objetivo_negocio"));
+                var.add(empresa);
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Registro não encontrado", "Sem registro", JOptionPane.INFORMATION_MESSAGE);
+            }
+            st.close();
+            conexion.close(); 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro no Programa " + e, "Erro no sistema", JOptionPane.ERROR_MESSAGE);
         }
-        return list;
+  
+  ```
+  
+  <p><i>No exemplo de código acima, é realizada uma conexão com o banco e realizada uma query de consulta dos clientes, procurando pelo CNPJ. Com base nos dados obtidos pela consulta, são setados nos campos de informação da empresa as informações referentes ao CNPJ pesquisado. Caso não seja encontrado um registro, mostra uma mensagem de "Registro não encontrado" em uma janela JOptionPanel</i></p>
+  <br>
+</details>
+<details>
+  <summary><b>Cadastro de clientes</b></summary>
+  <br>
+  <p>Desenvolvi o método para cadastrar as informações da empresa que é cadastrada na plataforma, com seus respectivo armazenamento no banco de dados.</p>
+  
+  ```java
+  
+  public void inserir(String cnpj, String nome_empresa, String objetivo_neg, String entregavel_min, String entregaveis_possi,
+                       String solucao, String produto, String funcionalidade, String core) {
+        try {
+            Connection conexion = conectar();
+            st = conexion.createStatement();
+            String sql = "insert into escopo(cnpj,nome_empresa,objetivo_neg,entregavel_min,entregaveis_possi,
+            solucao,produto,funcionalidade,core) values('" + cnpj + "','" + nome_empresa + "','"+entregavel_min+"',
+            '"+entregaveis_possi+"','"+solucao+"','"+produto+"','"+funcionalidade+"','"+core+"');";
+            st.execute(sql);
+            st.close();
+            conexion.close();
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao Salvar " + e, "Mensagem", JOptionPane.ERROR_MESSAGE);
+        }
     }
-  
   ```
   
-  <p><i>No exemplo de código acima, o endpoint de precipitação recebe os parâmetros personalizados de acordo com a estação e datas escolhidas pelo usuário, realiza a pesquisa no banco de dados com as variáveis e coloca o resultado dentro de uma lista de arrays de objetos. Através de um laço, cada objeto do tipo precipitação retornado pela consulta na query é adicionado na lista.</i></p>
+  <p><i>No trecho de código acima, é aberta uma conexão com o banco, realizada uma query de inserção no banco de dados, a qual recebe os dados da empresa, itera na query de inserção e executa para armazenar as informações no banco. Após esse processo é encerrada a conexão com o banco e se ocorrer algum erro é mostrado uma janela com a mensagem de erro para o usuário.</i></p>
   <br>
-</details>
-<details>
-  <summary><b>Desenvolvimento do dashboard</b></summary>
-  <br>
-  <p>Contribuí no desenvolvimento da interface do front-end, onde implementei a utilização da biblioteca chart.js para construir os gráficos baseados nos dados meteorológicos requisitados. Realizei métodos em JavaScript, que consultavam os JSON's dos endpoints do back-end, e gerava os gráficos a partir dos dados captados. Também implementei inputs na página web para receber os critérios de filtragem e passar os parâmetros para o back-end realizar as consultas.</p>
-  
-  ```javascript
-  
-  if(dado[0]=="temperatura"){
-    $(document).ready(function(){
-        $.getJSON("/temperatura/range/"+dado[1]+"/"+dado[2]+"/"+dado[3],function(data){
-          if(dado[1]!=null){
-              document.getElementById("selectRegiao").innerHTML = "";
-              $("#selectRegiao").append(inventory.find(procurarEstacao).nome_estacao+" - |"+dado[1]+"|");
-              document.getElementById("selectEstado").innerHTML = "";
-              $("#selectEstado").append(inventory.find(procurarEstacao).estado);
-              $(document).ready(function(){
-                  $.getJSON("/estados",function(regiao){
-                     function procurarEstado(estado) {
-                       return estado.nome_estado === inventory.find(procurarEstacao).estado;
-                     }
-                     document.getElementById("selectRegiao").innerHTML = "";
-                     $("#selectRegiao").append(regiao.find(procurarEstado).regiao);
-                  });
-              });
-          }
-  ...
-  ```
-  
-  <p><i>No trecho de código acima se o usuário busca pelo dado de temperatura, é realizado uma busca do JSON do endpoint formado pela URL personalizada de acordo com os parâmetros passados de região, estado e estação.</i></p>
-  <br>
-</details>
-<details>
-  <summary><b>Geração de relatório</b></summary>
-  <br>
-  <p>Implementei a função de gerar um PDF do gráfico gerado, contendo as informações meteorológicas filtradas de acordo com a pesquisa do usuário. O pdf gerado contém os dados pesquisados e o gráfico equivalente</p>
 </details><br>
 
 
 ### Aprendizados Efetivos
 <details>
-  <summary>Spring Framework</summary>
+  <summary>Linguagem Java</summary>
   <br>
     <ul>
-      <li>Desenvolvimento de aplicações web</li>
-      <li>Arquitetura REST</li>
+      <li>Orientação a objetos</li>
+      <li>Funções em Java</li>
       <li>Integração com banco de dados</li>
-      <li>Injeção de dependências</li>
-      <li>Desenvolvimento de código através de interfaces</li>
+      <li>Tratamento de erros</li>
     </ul>
   <br>
 </details>
@@ -214,21 +210,17 @@ Para armazenamento das informações, foi utilizado o PostgreSQL, um banco relac
   <br>
     <ul>
       <li>Consultas personalizadas com SQL</li>
-      <li>Geração de scripts</li>
-      <li>Export e import de backup</li>
+      <li>Gerenciamento de conexões</li>
     </ul>
   <br>
 </details>
 <details>
-  <summary>Programação</summary>
+  <summary>Swing Framework</summary>
   <br>
     <ul>
-      <li>Funções em JavaScript</li>
-      <li>Manipulação de variáveis com JavaScript</li>
-      <li>Programação orientada a objetos</li>
-      <li>Consumo de API Rest</li>
-      <li>Gerenciamento de usuários</li>
-      <li>Consumo de recursos de bootstrap</li>
+      <li>Desenvolvimento através de componentes Swing</li>
+      <li>Gerencimento de componentes GUI</li>
+      <li>Desenvolvimento de aplicação desktop</li>
     </ul>
   <br>
 </details><br><br>
